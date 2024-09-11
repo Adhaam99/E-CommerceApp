@@ -1,0 +1,96 @@
+<section class="bg-main-light shadow-xl p-4 rounded-lg ">
+
+    <h1 class="text-4xl text-main  mb-5"> Register Now : </h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="registerData()">
+
+        <div class="my-3">
+            <label for="name" class="block mb-2  font-medium text-gray-900 dark:text-white">Name</label>
+            <input formControlName="name" type="text" id="name" [ngClass]="
+            
+            {
+                
+                'valid':!registerForm.get('name')?.errors && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty) ,
+                'invalid':registerForm.get('name')?.errors && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="registerForm" [controlName]="'name'" />
+
+        </div>
+
+        <div class="my-3">
+            <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-white">Email</label>
+            <input formControlName="email" type="email" id="email" [ngClass]="
+            
+            {
+
+                'valid':!registerForm.get('email')?.errors && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty) ,
+                'invalid':registerForm.get('email')?.errors && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="registerForm" [controlName]="'email'" />
+        </div>
+
+        <div class="my-3">
+            <label for="password" class="block mb-2  font-medium text-gray-900 dark:text-white">Password</label>
+            <input formControlName="password" type="password" id="password" [ngClass]="
+            
+            {
+
+                'valid':!registerForm.get('password')?.errors && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty) ,
+                'invalid':registerForm.get('password')?.errors && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="registerForm" [controlName]="'password'" />
+
+        </div>
+
+        <div class="my-3">
+            <label for="rePassword" class="block mb-2  font-medium text-gray-900 dark:text-white">rePassword</label>
+            <input formControlName="rePassword" type="password" id="rePassword" [ngClass]="
+            
+            {
+
+                'valid':!registerForm.getError('mismatch') && (registerForm.get('rePassword')?.touched || registerForm.get('rePassword')?.dirty) ,
+                'invalid':registerForm.getError('mismatch') && (registerForm.get('rePassword')?.touched || registerForm.get('rePassword')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="registerForm" [controlName]="'rePassword'" />
+
+
+        </div>
+
+
+        @if ( errorMsg) {
+
+        <p class="text-lg text-red-600 my-3">Acount is Already Exist</p>
+        }@else if(successMsg){
+
+            <p class="text-lg text-main my-3">Acount Created Successfully</p>
+
+        }
+
+        <button [disabled]="registerForm.invalid || isLoading" type="submit" class="btn-main mt-4 ms-auto block">
+
+            Register
+
+            @if (isLoading) {
+
+            <i class="fas fa-spin fa-spinner"></i>
+            }
+
+        </button>
+    </form>
+</section>

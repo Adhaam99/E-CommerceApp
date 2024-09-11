@@ -1,0 +1,65 @@
+<section class="bg-main-light shadow-xl p-4 rounded-lg ">
+
+    <h1 class="text-4xl text-main  mb-5"> Login Now : </h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginData()">
+
+        
+
+        <div class="my-3">
+            <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-white">Email</label>
+            <input formControlName="email" type="email" id="email" [ngClass]="
+            
+            {
+
+                'valid':!loginForm.get('email')?.errors && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty) ,
+                'invalid':loginForm.get('email')?.errors && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="loginForm" [controlName]="'email'" />
+        </div>
+
+        <div class="my-3">
+            <label for="password" class="block mb-2  font-medium text-gray-900 dark:text-white">Password</label>
+            <input formControlName="password" type="password" id="password" [ngClass]="
+            
+            {
+
+                'valid':!loginForm.get('password')?.errors && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty) ,
+                'invalid':loginForm.get('password')?.errors && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="loginForm" [controlName]="'password'" />
+
+        </div>
+
+
+        @if ( errorMsg ) {
+
+        <p class="text-lg text-red-600 my-3"> {{errorMsg}} </p>
+        }
+
+        <div class="flex items-center justify-end space-x-3 mt-4">
+
+            <a routerLink="/forgot" class="cursor-pointer text-blue-700">Forgot Password ?</a>
+
+            <button [disabled]="loginForm.invalid || isLoading" type="submit" class="btn-main ">
+
+                Register
+    
+                @if (isLoading) {
+    
+                <i class="fas fa-spin fa-spinner"></i>
+                }
+    
+            </button>
+
+        </div>
+    </form>
+</section>

@@ -1,0 +1,79 @@
+<section class="bg-main-light shadow-xl p-4 rounded-lg w-4/5 mx-auto">
+
+    <h1 class="text-4xl text-main text-center  mb-5"> Shiping Details </h1>
+
+    <form [formGroup]="shippingAddress" (ngSubmit)="shipingData()">
+
+        <div class="my-3">
+            <label for="details" class="block mb-2  font-medium text-gray-900 dark:text-white">details</label>
+            <textarea formControlName="details" rows="2" id="details" [ngClass]="
+            
+            {
+
+                'valid':!shippingAddress.get('details')?.errors && (shippingAddress.get('details')?.touched || shippingAddress.get('details')?.dirty) ,
+                'invalid':shippingAddress.get('details')?.errors && (shippingAddress.get('details')?.touched || shippingAddress.get('details')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+               
+            </textarea>
+
+            <app-alert-error [formName]="shippingAddress" [controlName]="'details'" />
+
+            
+        </div>
+
+        <div class="my-3">
+            <label for="phone" class="block mb-2  font-medium text-gray-900 dark:text-white">Phone</label>
+            <input formControlName="phone" type="tel" id="phone" [ngClass]="
+            
+            {
+
+                'valid':!shippingAddress.get('phone')?.errors && (shippingAddress.get('phone')?.touched || shippingAddress.get('phone')?.dirty) ,
+                'invalid':shippingAddress.get('phone')?.errors && (shippingAddress.get('phone')?.touched || shippingAddress.get('phone')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="shippingAddress" [controlName]="'phone'" />
+
+        </div>
+
+        <div class="my-3">
+            <label for="city" class="block mb-2  font-medium text-gray-900 dark:text-white">City</label>
+            <input formControlName="city" type="text" id="city" [ngClass]="
+            
+            {
+
+                'valid':!shippingAddress.get('city')?.errors && (shippingAddress.get('city')?.touched || shippingAddress.get('city')?.dirty) ,
+                'invalid':shippingAddress.get('city')?.errors && (shippingAddress.get('city')?.touched || shippingAddress.get('city')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <app-alert-error [formName]="shippingAddress" [controlName]="'city'" />
+
+        </div>
+
+
+        @if ( errorMsg ) {
+
+        <p class="text-lg text-red-600 my-3"> {{errorMsg}} </p>
+        }
+
+        <button [disabled]="shippingAddress.invalid || isLoading " type="submit" class="btn-main mt-4 ms-auto block"> Payment 
+
+            @if (isLoading) {
+    
+                <i class="fas fa-spin fa-spinner"></i>
+                }
+        </button>
+
+
+       
+    </form>
+    
+</section>

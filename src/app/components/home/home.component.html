@@ -1,0 +1,71 @@
+<!--Main Slider-->
+
+<section>
+
+    <div class="flex">
+
+        <div class="w-full md:w-9/12">
+            <owl-carousel-o [options]="customOptionsMain">
+                <ng-template carouselSlide>
+                    <img src="./assets/images/img1.avif" class="w-full h-[300px]" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/images/img2.avif" class="w-full h-[300px]" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/images/img3.avif" class="w-full h-[300px]" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/images/img4.avif" class="w-full h-[300px]" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/images/img5.avif" class="w-full h-[300px]" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/images/img6.avif" class="w-full h-[300px]" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/images/img7.avif" class="w-full h-[300px]" alt="">
+                </ng-template>
+            </owl-carousel-o>
+
+        </div>
+        <div class="w-full max-md:hidden  md:w-3/12">
+            <div>
+                <img src="./assets/images/grocery-banner.png" class="w-full h-[150px]" alt="">
+            </div>
+            <div>
+                <img src="./assets/images/grocery-banner-2.jpeg" class="w-full h-[150px]" alt="">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!--Categories-->
+
+<section>
+
+    <div class="my-3">
+
+        <owl-carousel-o [options]="customOptionsCat">
+
+            @for (cat of allCategories; track cat._id) {
+
+            <ng-template carouselSlide>
+                <div>
+                    <img [src]="cat.image" class="w-full h-[15.625rem]" [alt]="cat.name">
+                    <h3 class="my-2 text-xl text-main">{{cat.name}}</h3>
+                </div>
+            </ng-template>
+            }
+
+        </owl-carousel-o>
+    </div>
+
+</section>
+
+<!--Products-->
+
+<app-product [allProducts]="allProducts.slice(0 , 20)"></app-product>

@@ -1,0 +1,20 @@
+<section>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            @for (cat of allCategories; track $index) {
+
+            <div class="product text-center flex flex-col justify-center p-5" [routerLink]="['/subCategory' , cat._id]">
+                
+                <div>
+                    <img [src]="cat.image" class="w-full block h-[350px]" [alt]="cat.name">
+                </div>
+                
+                <h3 class="text-2xl pt-4">{{cat.name}}</h3>
+
+            </div>
+            }
+        </div>
+
+</section>

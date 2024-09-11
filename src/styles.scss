@@ -1,1 +1,150 @@
-/* You can add global styles to this file, and also import other style files */
+/* OwlCarousel */
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+/*NgxToaster*/
+@import 'ngx-toastr/toastr';
+
+/* Tailwind*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+
+:root {
+  --main-color: #0aad0a;
+  --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color: #ffc908;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family) !important;
+}
+
+
+.nav-link {
+  transition: unset !important;
+}
+.active-link {
+  background-color: var(--main-color) !important;
+  color: var(--light-color) !important;
+  border-radius: 5px;
+}
+
+.rating-color {
+  color: var(--rating-color);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+a,
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.text-muted{
+
+  color: #333;
+}
+
+.product {
+  border-radius: 5px;
+  transition: box-shadow 0.5s;
+  overflow: hidden;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.product:hover {
+  box-shadow: 0 0 10px #11bd1168;
+  border:solid 1px var(--main-color)
+}
+
+.product .btn-main 
+{
+    transition: transform 1s , opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product:hover .btn-main 
+{
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+
+.font-sm {
+  font-size: 12px;
+}
+
+.text-main {
+  color: var(--main-color);
+}
+
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+.btn-main {
+  background-color: var(--main-color);
+  padding: 7px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.btn-main:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.btn-main:disabled:hover {
+  background-color: #ccc;
+}
+
+.btn-main:hover {
+  background-color: #11bd11;
+}
+
+.invalid{
+
+  @apply bg-red-50  border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500;
+}
+
+.valid{
+
+  @apply bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500;
+}
+
+::-webkit-scrollbar{
+
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #0aad0a;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+::-webkit-scrollbar-track{
+
+  background-color: #f0f3f2;
+}

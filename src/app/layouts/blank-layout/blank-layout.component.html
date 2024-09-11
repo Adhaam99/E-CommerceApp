@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<div class="container pt-10">
+
+    <router-outlet></router-outlet>
+
+</div>
+
+@if (showBtn) {
+    <button (click)="toTop()" class="bg-[#0aad0a] hover:bg-[#258725] text-white px-2 py-1 rounded fixed bottom-5 right-5 z-50"><i class="fa-solid fa-angle-up"></i></button>
+
+}
+
+
+<app-footer></app-footer>
+
