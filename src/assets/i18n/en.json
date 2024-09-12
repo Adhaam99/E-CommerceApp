@@ -1,11 +1,16 @@
 {
-    "navbar":{
-        "home":"Home",
-        "products":"Products",
-        "categories":"Categories",
-        "brands":"Brands",
-        "wishlist":"Wishlist",
-        "cart":"Cart",
-        "logout":"Logout"
-    }
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "categories": "Categories",
+    "brands": "Brands",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "logout": "Logout"
+  },
+
+  "navbar-auth": {
+    "signIn": "SignIn",
+    "signUp": "SignUp"
+  }
 }

@@ -4,7 +4,7 @@
     <div class="container flex max-md:flex-wrap  items-center justify-between mx-auto 2xl:px-16 p-3">
       <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse me-4">
          
-        <img src="../../../assets/images/freshcart-logo.svg" alt="logo fresh cart">
+        <img src="./assets/images/freshcart-logo.svg" alt="logo fresh cart">
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
@@ -15,7 +15,7 @@
       <div class="hidden w-full md:flex md:items-center  " id="navbar-default">
         <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 ms-auto  rounded-lg  md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0  ">
           <li class="flex items-center ">
-            <ul class="flex space-x-4">
+            <ul class="flex gap-3">
                 <li>
                     <a class="block cursor-pointer  text-black" aria-current="page"><i class="fa-brands fa-instagram"></i></a>
                   </li>
@@ -42,12 +42,41 @@
             </ul>
         </li>
             <li>
-            <a routerLink="login" routerLinkActive="active-link" class="block py-2 px-3 text-gray-500" aria-current="page">SignIn</a>
+            <a routerLink="login" routerLinkActive="active-link" class="block py-2 px-3 text-gray-500" aria-current="page">{{"navbar-auth.signIn" | translate}}</a>
           </li>
 
           <li>
-            <a routerLink="register" routerLinkActive="active-link" class="block py-2 px-3 text-gray-500" aria-current="page">SignUp</a>
+            <a routerLink="register" routerLinkActive="active-link" class="block py-2 px-3 text-gray-500" aria-current="page">{{"navbar-auth.signUp" | translate}}</a>
           </li>
+          <li class="flex items-center justify-center">
+
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" data-dropdown-delay="500"
+                data-dropdown-trigger="hover"
+                class="text-gray-800 hover:bg-blue-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button"><i class="fa-solid fa-globe"></i> <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 4 4 4-4" />
+                </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdown"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                    <li>
+                        <a href="#" (click)="change('en')" [class.bg-blue-500]="_TranslateService.currentLang == 'en'" [class.text-white]="_TranslateService.currentLang == 'en'"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">English</a>
+                    </li>
+                    <li>
+                        <a href="#" (click)="change('ar')" [class.bg-blue-500]="_TranslateService.currentLang == 'ar'" [class.text-white]="_TranslateService.currentLang == 'ar'"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ">العربية</a>
+                    </li>
+                   
+                </ul>
+            </div>
+
+        </li>
 
           
         </ul>

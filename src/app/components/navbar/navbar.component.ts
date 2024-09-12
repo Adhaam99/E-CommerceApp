@@ -7,7 +7,6 @@ import {
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
-import { FlowbiteService } from '../../core/services/flowbite.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { CartService } from '../../core/services/cart.service';
@@ -34,12 +33,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   wishlistCounterApi!: Subscription;
 
   readonly _AuthService = inject(AuthService);
-  private readonly _FlowbiteService = inject(FlowbiteService);
   private readonly _CartService = inject(CartService);
   private readonly _WishlistService = inject(WishlistService);
   private readonly _MyTranslateService = inject(MyTranslateService);
-  private readonly _platId = inject(PLATFORM_ID);
-  private readonly _zone = inject(NgZone);
   readonly _TranslateService = inject(TranslateService);
 
   getUserCart = () => {
