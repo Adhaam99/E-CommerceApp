@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable, signal, WritableSignal } from '@angular/core';
+import { Observable } from 'rxjs';
 import { baseUrl } from '../../environment/environment.local';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  cartCounter:BehaviorSubject<number> = new BehaviorSubject(0)
+  cartCounter:WritableSignal<number> = signal(0)
   
   constructor(private _HttpClient: HttpClient) {}
 

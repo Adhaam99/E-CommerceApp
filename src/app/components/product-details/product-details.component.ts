@@ -1,13 +1,12 @@
-import { Product } from './../../core/interfaces/product';
+import { CurrencyPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { ProductsService } from '../../core/services/products.service';
-import { ProductDetails } from '../../core/interfaces/product-details';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { CartService } from '../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import { CurrencyPipe } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { ProductDetails } from '../../core/interfaces/product-details';
+import { CartService } from '../../core/services/cart.service';
+import { ProductsService } from '../../core/services/products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -66,7 +65,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   addProductToCart = (id: string) => {
     this.addProductToCartApi = this._CartService.addToCart(id).subscribe({
       next: (res) => {
-        this._CartService.cartCounter.next(res.numOfCartItems);
+        this._CartService.cartCounter.set(res.numOfCartItems);
         this._ToastrService.success('Product Added Successfully');
       },
       error: (err) => {

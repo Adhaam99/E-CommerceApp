@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  computed,
   inject,
   NgZone,
   OnDestroy,
@@ -12,7 +13,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { CartService } from '../../core/services/cart.service';
 import { Subscription } from 'rxjs';
 import { WishlistService } from '../../core/services/wishlist.service';
-import { NgClass } from '@angular/common';
+import { NgClass, UpperCasePipe } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MyTranslateService } from '../../core/services/my-translate.service';
 import { initFlowbite } from 'flowbite';
@@ -20,12 +21,12 @@ import { initFlowbite } from 'flowbite';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLinkActive, RouterLink, NgClass, TranslateModule],
+  imports: [RouterLinkActive, RouterLink, NgClass,UpperCasePipe ,TranslateModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  cartCounter: number = 0;
+  cartCounter = computed( () => this._CartService.cartCounter() )
   wishlistCounter: number = 0;
   getUserCartApi!: Subscription;
   getCartCounterApi!: Subscription;
@@ -41,12 +42,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   getUserCart = () => {
     this.getUserCartApi = this._CartService.getUserCart().subscribe({
       next: (res) => {
-        this.cartCounter = res.numOfCartItems;
-      },
-    });
-    this.getCartCounterApi = this._CartService.cartCounter.subscribe({
-      next: (counter) => {
-        this.cartCounter = counter;
+        this._CartService.cartCounter.set(res.numOfCartItems) ;
       },
     });
   };

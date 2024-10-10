@@ -1,23 +1,8 @@
 import { Routes } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
-import { ProductsComponent } from './components/products/products.component';
-import { CartComponent } from './components/cart/cart.component';
-import { BrandsComponent } from './components/brands/brands.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { authGuard } from './core/guards/auth.guard';
 import { logedGuard } from './core/guards/loged.guard';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { AllOrdersComponent } from './components/all-orders/all-orders.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { SubCategoryComponent } from './components/sub-category/sub-category.component';
-import { SubBrandComponent } from './components/sub-brand/sub-brand.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -25,40 +10,101 @@ export const routes: Routes = [
   {
     path: '',
     component: AuthLayoutComponent,
-    canActivate:[logedGuard],
+    canActivate: [logedGuard],
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-      { path: 'login', component: LoginComponent,title:'SignIn' },
-
-      { path: 'register', component: RegisterComponent,title:'SignUp' },
-
-      { path: 'forgot', component: ForgotPasswordComponent,title:'Backup Password' },
-
+      {
+        path: 'login',
+        loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent),
+        title: 'SignIn',
+      },
+      {
+        path: 'register',
+        loadComponent: () => import('./components/register/register.component').then(m => m.RegisterComponent),
+        title: 'SignUp',
+      },
+      {
+        path: 'forgot',
+        loadComponent: () => import('./components/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent),
+        title: 'Backup Password',
+      },
     ],
   },
 
   {
     path: '',
     component: BlankLayoutComponent,
-    canActivate:[authGuard],
+    canActivate: [authGuard],
     children: [
-
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent,title:'Home' },
-      { path: 'products', component: ProductsComponent,title:'Products' },
-      { path: 'brands', component: BrandsComponent,title:'Brands' },
-      { path: 'categories', component: CategoriesComponent,title:'Categories' },
-      { path:'wishlist',component:WishlistComponent,title:'Wishlist'},
-      { path: 'cart', component: CartComponent,title:'Cart' },
-      { path: 'details/:id', component: ProductDetailsComponent,title:'Details' },
-      { path: 'allOrders', component: AllOrdersComponent,title:'All Orders' },
-      { path: 'orders/:id', component: OrdersComponent,title:' Orders' },
-      { path: 'subCategory/:id', component: SubCategoryComponent,title:' Category ' },
-      { path: 'subBrand/:id', component: SubBrandComponent,title:' Brand ' },
 
+      {
+        path: 'home',
+        loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent),
+        title: 'Home',
+      },
+      {
+        path: 'products',
+        loadComponent: () => import('./components/products/products.component').then(m => m.ProductsComponent),
+        title: 'Products',
+      },
+      {
+        path: 'brands',
+        loadComponent: () => import('./components/brands/brands.component').then(m => m.BrandsComponent),
+        title: 'Brands',
+      },
+      {
+        path: 'categories',
+        loadComponent: () => import('./components/categories/categories.component').then(m => m.CategoriesComponent),
+        title: 'Categories',
+      },
+      {
+        path: 'wishlist',
+        loadComponent: () => import('./components/wishlist/wishlist.component').then(m => m.WishlistComponent),
+        title: 'Wishlist',
+      },
+      {
+        path: 'cart',
+        loadComponent: () => import('./components/cart/cart.component').then(m => m.CartComponent),
+        title: 'Cart',
+      },
+      {
+        path: 'details/:id',
+        loadComponent: () => import('./components/product-details/product-details.component').then(m => m.ProductDetailsComponent),
+        title: 'Details',
+      },
+      {
+        path: 'allOrders',
+        loadComponent: () => import('./components/all-orders/all-orders.component').then(m => m.AllOrdersComponent),
+        title: 'All Orders',
+      },
+      {
+        path: 'orders/:id',
+        loadComponent: () => import('./components/orders/orders.component').then(m => m.OrdersComponent),
+        title: 'Orders',
+      },
+      {
+        path: 'subCategory/:id',
+        loadComponent: () => import('./components/sub-category/sub-category.component').then(m => m.SubCategoryComponent),
+        title: 'Category',
+      },
+      {
+        path: 'subBrand/:id',
+        loadComponent: () => import('./components/sub-brand/sub-brand.component').then(m => m.SubBrandComponent),
+        title: 'Brand',
+      },
+      {
+        path: '**',
+        loadComponent: () => import('./components/notfound/notfound.component').then(m => m.NotfoundComponent),
+        title: 'NotFound',
+      },
     ],
   },
 
-  { path: '**', component: NotfoundComponent,title:'NotFound' },
+  {
+    path: '**',
+    loadComponent: () => import('./components/notfound/notfound.component').then(m => m.NotfoundComponent),
+    title: 'NotFound',
+  },
 ];

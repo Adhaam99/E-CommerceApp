@@ -1,18 +1,17 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, inject, OnDestroy } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
-  ReactiveFormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../core/services/auth.service';
 import { AlertErrorComponent } from '../../shared/alert-error/alert-error.component';
 import { confirmPassword } from '../../shared/utilites/confirm-pass.utilites';
 import { registerVaildators } from '../../shared/utilites/registerVaildators.utilites';
-import { AuthService } from '../../core/services/auth.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { NgClass } from '@angular/common';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',

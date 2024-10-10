@@ -3,11 +3,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { initFlowbite } from 'flowbite';
 import { MyTranslateService } from '../../core/services/my-translate.service';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-navbar-auth',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive ,TranslateModule],
+  imports: [RouterLink,RouterLinkActive ,UpperCasePipe ,TranslateModule],
   templateUrl: './navbar-auth.component.html',
   styleUrl: './navbar-auth.component.scss'
 })

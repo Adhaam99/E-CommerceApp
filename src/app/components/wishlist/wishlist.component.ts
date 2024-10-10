@@ -43,7 +43,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res) => {
           this.getUserWishlist();
-          this._ToastrService.success('Product Removed from Wishlist');
+          this._ToastrService.success('Product Removed from Wishlist' , 'FreshCart');
         },
         error: (err) => {
           console.log(err);
@@ -55,8 +55,8 @@ export class WishlistComponent implements OnInit, OnDestroy {
     this.addProductToCartApi = this._CartService.addToCart(id).subscribe({
       next: (res) => {
         this.getUserWishlist();
-        this._CartService.cartCounter.next(res.numOfCartItems)
-        this._ToastrService.success('Product Added to Cart');
+        this._CartService.cartCounter.set(res.numOfCartItems)
+        this._ToastrService.success('Product Added to Cart' , 'FreshCart');
       },
       error: (err) => {
         console.log(err);

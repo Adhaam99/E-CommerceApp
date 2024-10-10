@@ -1,14 +1,14 @@
-import { Component, inject, Input } from '@angular/core';
+import { CurrencyPipe, UpperCasePipe } from '@angular/common';
+import { Component, inject, Input, signal, WritableSignal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { IWishProduct } from '../../core/interfaces/iwish-product';
-import { Product } from '../../core/interfaces/product';
+import { OnSalePipe } from '../../core/pipes/on-sale.pipe';
+import { TrimTextPipe } from '../../core/pipes/trim-text.pipe';
 import { CartService } from '../../core/services/cart.service';
 import { WishlistService } from '../../core/services/wishlist.service';
-import { RouterLink } from '@angular/router';
-import { CurrencyPipe, UpperCasePipe } from '@angular/common';
-import { TrimTextPipe } from '../../core/pipes/trim-text.pipe';
-import { OnSalePipe } from '../../core/pipes/on-sale.pipe';
+import { Product } from '../../core/interfaces/product';
 
 @Component({
   selector: 'app-product',
@@ -19,7 +19,6 @@ import { OnSalePipe } from '../../core/pipes/on-sale.pipe';
 })
 export class ProductComponent {
   @Input() allProducts: Product[] = [];
-  userWishList: IWishProduct[] = [];
   wishListIcon: string[] = [];
   addProductToCartApi!: Subscription;
   addToWishlistApi!: Subscription;
@@ -44,8 +43,8 @@ export class ProductComponent {
     this.addProductToCartApi = this._CartService.addToCart(id).subscribe({
       next: (res) => {
         console.log(res);
-        this._CartService.cartCounter.next(res.numOfCartItems);
-        this._ToastrService.success('Product Added Successfully');
+        this._CartService.cartCounter.set(res.numOfCartItems);
+        this._ToastrService.success('Product Added Successfully' , 'FreshCart');
       },
       error: (err) => {
         console.log(err);
@@ -59,7 +58,7 @@ export class ProductComponent {
       next: (res) => {
         this.wishListIcon = res.data;
         this._WishlistService.wishListCounter.next(res.data.length);
-        this._ToastrService.success('Product Added to Wishlist');
+        this._ToastrService.success('Product Added to Wishlist' , 'FreshCart');
       },
       error: (err) => {
         console.log(err);
@@ -75,7 +74,7 @@ export class ProductComponent {
         next: (res) => {
           this.wishListIcon = res.data;
           this._WishlistService.wishListCounter.next(res.data.length);
-          this._ToastrService.success('Product Removed From Wishlist');
+          this._ToastrService.success('Product Removed From Wishlist' , 'FreshCart');
         },
         error: (err) => {
           console.log(err);

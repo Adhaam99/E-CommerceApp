@@ -12,5 +12,16 @@
   "navbar-auth": {
     "signIn": "SignIn",
     "signUp": "SignUp"
+  },
+
+  "footer": {
+    "f1": "Get the FreshCart app",
+    "f2": "We will send you a link, open it on your phone to download the app.",
+    "f3": "Share App Link",
+    "f4": "Payment Partners",
+    "f5": "Get delivereis with FreshCart",
+    "f6": "Email..."
+
+
   }
 }

@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/interfaces/product';
 import { Subscription } from 'rxjs';
@@ -26,7 +26,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   allProducts: Product[] = [];
-  allCategories: Categories[] = [];
+  allCategories:WritableSignal<Categories[]> = signal([])
   getAllProducts!: Subscription;
   getAllCategories!: Subscription;
 
@@ -98,7 +98,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   getCategories = () => {
     this.getAllCategories = this._CategoriesService.getCategories().subscribe({
       next: (res) => {
-        this.allCategories = res.data;
+        this.allCategories.set(res.data);
       },
 
       error: (err) => {

@@ -4,25 +4,6 @@
 
     <form [formGroup]="shippingAddress" (ngSubmit)="shipingData()">
 
-        <div class="my-3">
-            <label for="details" class="block mb-2  font-medium text-gray-900 dark:text-white">details</label>
-            <textarea formControlName="details" rows="2" id="details" [ngClass]="
-            
-            {
-
-                'valid':!shippingAddress.get('details')?.errors && (shippingAddress.get('details')?.touched || shippingAddress.get('details')?.dirty) ,
-                'invalid':shippingAddress.get('details')?.errors && (shippingAddress.get('details')?.touched || shippingAddress.get('details')?.dirty)
-            }
-            
-            "
-                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-               
-            </textarea>
-
-            <app-alert-error [formName]="shippingAddress" [controlName]="'details'" />
-
-            
-        </div>
 
         <div class="my-3">
             <label for="phone" class="block mb-2  font-medium text-gray-900 dark:text-white">Phone</label>
@@ -56,6 +37,26 @@
 
             <app-alert-error [formName]="shippingAddress" [controlName]="'city'" />
 
+        </div>
+
+        <div class="my-3">
+            <label for="details" class="block mb-2  font-medium text-gray-900 dark:text-white">details</label>
+            <textarea formControlName="details" rows="2" id="details" [ngClass]="
+            
+            {
+
+                'valid':!shippingAddress.get('details')?.errors && (shippingAddress.get('details')?.touched || shippingAddress.get('details')?.dirty) ,
+                'invalid':shippingAddress.get('details')?.errors && (shippingAddress.get('details')?.touched || shippingAddress.get('details')?.dirty)
+            }
+            
+            "
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+               
+            </textarea>
+
+            <app-alert-error [formName]="shippingAddress" [controlName]="'details'" />
+
+            
         </div>
 
 

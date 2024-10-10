@@ -1,8 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ProductsService } from '../../core/services/products.service';
-import { Product } from '../../core/interfaces/product';
 import { Subscription } from 'rxjs';
-import { CurrencyPipe, UpperCasePipe } from '@angular/common';
+import { Product } from '../../core/interfaces/product';
+import { ProductsService } from '../../core/services/products.service';
 import { ProductComponent } from "../../shared/product/product.component";
 
 

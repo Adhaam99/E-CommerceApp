@@ -44,8 +44,8 @@ export class CartComponent implements OnInit, OnDestroy {
     this.removeCartItemApi = this._CartService.removeCartItem(id).subscribe({
       next: (res) => {
         this.cartData = res.data;
-        this._CartService.cartCounter.next(res.numOfCartItems);
-        this._ToastrService.success('Item Removed Successfully');
+        this._CartService.cartCounter.set(res.numOfCartItems);
+        this._ToastrService.success('Item Removed Successfully' , 'FreshCart');
       },
     });
   };
@@ -67,7 +67,7 @@ export class CartComponent implements OnInit, OnDestroy {
     this.clearCartApi = this._CartService.clearCart().subscribe({
       next: (res) => {
         this._ToastrService.success(res.message);
-        this._CartService.cartCounter.next(0);
+        this._CartService.cartCounter.set(0);
         this.cartData = null;
       },
       error: (err) => {
