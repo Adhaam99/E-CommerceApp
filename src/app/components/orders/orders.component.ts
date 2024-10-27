@@ -10,11 +10,12 @@ import { AlertErrorComponent } from '../../shared/alert-error/alert-error.compon
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { OrdersService } from '../../core/services/orders.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, AlertErrorComponent],
+  imports: [ReactiveFormsModule, NgClass, AlertErrorComponent, TranslateModule],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss',
 })

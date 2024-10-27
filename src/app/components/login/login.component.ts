@@ -6,11 +6,12 @@ import { NgClass } from '@angular/common';
 import { AlertErrorComponent } from '../../shared/alert-error/alert-error.component';
 import { Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule, NgClass, AlertErrorComponent],
+  imports: [RouterLink,ReactiveFormsModule, NgClass, AlertErrorComponent, TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

@@ -12,11 +12,12 @@ import { AuthService } from '../../core/services/auth.service';
 import { AlertErrorComponent } from '../../shared/alert-error/alert-error.component';
 import { confirmPassword } from '../../shared/utilites/confirm-pass.utilites';
 import { registerVaildators } from '../../shared/utilites/registerVaildators.utilites';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, AlertErrorComponent, NgClass],
+  imports: [ReactiveFormsModule, AlertErrorComponent, NgClass, TranslateModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })

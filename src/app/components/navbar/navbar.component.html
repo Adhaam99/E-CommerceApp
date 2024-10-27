@@ -13,7 +13,7 @@
                     d="M1 1h15M1 7h15M1 13h15" />
             </svg>
         </button>
-        <div class="hidden w-full md:flex md:items-center " id="navbar-default">
+        <div class="hidden w-full md:flex md:items-center md:justify-between " id="navbar-default">
             <ul
                 class="font-medium flex flex-col p-4 md:p-0 mt-4 me-auto   rounded-lg  md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0  ">
                 <li>
@@ -38,42 +38,40 @@
 
             </ul>
 
+            <ul class="flex gap-3">
+                <li>
+                    <a class="block cursor-pointer  text-black" aria-current="page"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </li>
+
+                <li>
+                    <a class="block cursor-pointer  text-black" aria-current="page"><i
+                            class="fa-brands fa-facebook"></i></a>
+                </li>
+
+                <li>
+                    <a class="block cursor-pointer  text-black" aria-current="page"><i
+                            class="fa-brands fa-tiktok"></i></a>
+                </li>
+
+                <li>
+                    <a class="block cursor-pointer  text-black" aria-current="page"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </li>
+
+                <li>
+                    <a class="block cursor-pointer  text-black" aria-current="page"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                </li>
+
+                <li>
+                    <a class="block cursor-pointer  text-black" aria-current="page"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </li>
+            </ul>
+
             <ul
                 class="font-medium flex flex-col p-4 md:flex-row md:p-0 mt-4 ms-auto  rounded-lg  space-x-1 rtl:space-x-reverse md:mt-0  ">
-
-                <li class="flex items-center ">
-                    <ul class="flex gap-3">
-                        <li>
-                            <a class="block cursor-pointer  text-black" aria-current="page"><i
-                                    class="fa-brands fa-instagram"></i></a>
-                        </li>
-
-                        <li>
-                            <a class="block cursor-pointer  text-black" aria-current="page"><i
-                                    class="fa-brands fa-facebook"></i></a>
-                        </li>
-
-                        <li>
-                            <a class="block cursor-pointer  text-black" aria-current="page"><i
-                                    class="fa-brands fa-tiktok"></i></a>
-                        </li>
-
-                        <li>
-                            <a class="block cursor-pointer  text-black" aria-current="page"><i
-                                    class="fa-brands fa-twitter"></i></a>
-                        </li>
-
-                        <li>
-                            <a class="block cursor-pointer  text-black" aria-current="page"><i
-                                    class="fa-brands fa-linkedin"></i></a>
-                        </li>
-
-                        <li>
-                            <a class="block cursor-pointer  text-black" aria-current="page"><i
-                                    class="fa-brands fa-youtube"></i></a>
-                        </li>
-                    </ul>
-                </li>
                 
                 <li>
                     <a routerLink="wishlist" routerLinkActive="active-link"
@@ -83,7 +81,7 @@
 
                         @if (wishlistCounter) {
                         <div
-                            class="absolute z-50 inline-flex items-center justify-center w-6 h-6 text-xs font-medium text-white bg-red-600 rounded-full -top-2 -end-2 ">
+                            class="absolute z-50 inline-flex items-center justify-center w-6 h-6 text-xs font-medium text-white bg-red-600 rounded-full max-md:rtl:left-2 max-md:ltr:right-2   md:-top-2 md:-end-2 ">
 
                             {{wishlistCounter}}
 
@@ -103,7 +101,7 @@
 
                         @if (cartCounter()) {
                         <div
-                            class="absolute z-50 inline-flex items-center justify-center w-6 h-6 text-xs font-medium text-white bg-red-600 rounded-full -top-2 -end-2 ">
+                            class="absolute z-50 inline-flex items-center justify-center w-6 h-6 text-xs font-medium text-white bg-red-600 rounded-full max-md:rtl:left-2 max-md:ltr:right-2   md:-top-2 md:-end-2 ">
 
                             {{cartCounter()}}
 

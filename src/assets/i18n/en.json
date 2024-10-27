@@ -21,7 +21,34 @@
     "f4": "Payment Partners",
     "f5": "Get delivereis with FreshCart",
     "f6": "Email..."
+  },
 
+  "login":{
+    "loginNow": "Login Now",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "forgotPassword": "Forgot Password ?"
+  },
 
+  "register":{
+    "registerNow": "Register Now",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "rePassword": "rePassword",
+    "register": "Register"
+  },
+
+  "order": {
+    "shipingDetails": "Shiping Details",
+    "phone": "Phone",
+    "city": "City",
+    "details": "Details",
+    "payment": "Payment"
+  },
+  
+  "search": {
+    "search": "Search for certain product.."
   }
 }

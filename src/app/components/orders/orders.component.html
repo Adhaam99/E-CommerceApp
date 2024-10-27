@@ -1,12 +1,12 @@
 <section class="bg-main-light shadow-xl p-4 rounded-lg w-4/5 mx-auto">
 
-    <h1 class="text-4xl text-main text-center  mb-5"> Shiping Details </h1>
+    <h1 class="text-4xl text-main text-center  mb-5"> {{"order.shipingDetails" | translate}} </h1>
 
     <form [formGroup]="shippingAddress" (ngSubmit)="shipingData()">
 
 
         <div class="my-3">
-            <label for="phone" class="block mb-2  font-medium text-gray-900 dark:text-white">Phone</label>
+            <label for="phone" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"order.phone" | translate}}</label>
             <input formControlName="phone" type="tel" id="phone" [ngClass]="
             
             {
@@ -23,7 +23,7 @@
         </div>
 
         <div class="my-3">
-            <label for="city" class="block mb-2  font-medium text-gray-900 dark:text-white">City</label>
+            <label for="city" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"order.city" | translate}}</label>
             <input formControlName="city" type="text" id="city" [ngClass]="
             
             {
@@ -40,7 +40,7 @@
         </div>
 
         <div class="my-3">
-            <label for="details" class="block mb-2  font-medium text-gray-900 dark:text-white">details</label>
+            <label for="details" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"order.details" | translate}}</label>
             <textarea formControlName="details" rows="2" id="details" [ngClass]="
             
             {
@@ -65,7 +65,7 @@
         <p class="text-lg text-red-600 my-3"> {{errorMsg}} </p>
         }
 
-        <button [disabled]="shippingAddress.invalid || isLoading " type="submit" class="btn-main mt-4 ms-auto block"> Payment 
+        <button [disabled]="shippingAddress.invalid || isLoading " type="submit" class="btn-main mt-4 ms-auto block"> {{"order.payment" | translate}} 
 
             @if (isLoading) {
     

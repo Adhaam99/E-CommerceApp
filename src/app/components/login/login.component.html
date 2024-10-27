@@ -1,13 +1,13 @@
 <section class="bg-main-light shadow-xl p-4 rounded-lg ">
 
-    <h1 class="text-4xl text-main  mb-5"> Login Now : </h1>
+    <h1 class="text-4xl text-main  mb-5"> {{"login.loginNow" | translate}} : </h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="loginData()">
 
         
 
         <div class="my-3">
-            <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-white">Email</label>
+            <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"login.email" | translate}}</label>
             <input formControlName="email" type="email" id="email" [ngClass]="
             
             {
@@ -23,7 +23,7 @@
         </div>
 
         <div class="my-3">
-            <label for="password" class="block mb-2  font-medium text-gray-900 dark:text-white">Password</label>
+            <label for="password" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"login.password" | translate}}</label>
             <input formControlName="password" type="password" id="password" [ngClass]="
             
             {
@@ -47,11 +47,11 @@
 
         <div class="flex items-center justify-end space-x-3 mt-4">
 
-            <a routerLink="/forgot" class="cursor-pointer text-blue-700">Forgot Password ?</a>
+            <a routerLink="/forgot" class="cursor-pointer mx-2 text-blue-700">{{"login.forgotPassword" | translate}}</a>
 
             <button [disabled]="loginForm.invalid || isLoading" type="submit" class="btn-main ">
 
-                Register
+                {{"login.login" | translate}}
     
                 @if (isLoading) {
     

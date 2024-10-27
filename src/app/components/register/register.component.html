@@ -1,11 +1,11 @@
 <section class="bg-main-light shadow-xl p-4 rounded-lg ">
 
-    <h1 class="text-4xl text-main  mb-5"> Register Now : </h1>
+    <h1 class="text-4xl text-main  mb-5"> {{"register.registerNow" | translate}} : </h1>
 
     <form [formGroup]="registerForm" (ngSubmit)="registerData()">
 
         <div class="my-3">
-            <label for="name" class="block mb-2  font-medium text-gray-900 dark:text-white">Name</label>
+            <label for="name" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"register.name" | translate}}</label>
             <input formControlName="name" type="text" id="name" [ngClass]="
             
             {
@@ -22,7 +22,7 @@
         </div>
 
         <div class="my-3">
-            <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-white">Email</label>
+            <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"register.email" | translate}}</label>
             <input formControlName="email" type="email" id="email" [ngClass]="
             
             {
@@ -38,7 +38,7 @@
         </div>
 
         <div class="my-3">
-            <label for="password" class="block mb-2  font-medium text-gray-900 dark:text-white">Password</label>
+            <label for="password" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"register.password" | translate}}</label>
             <input formControlName="password" type="password" id="password" [ngClass]="
             
             {
@@ -55,7 +55,7 @@
         </div>
 
         <div class="my-3">
-            <label for="rePassword" class="block mb-2  font-medium text-gray-900 dark:text-white">rePassword</label>
+            <label for="rePassword" class="block mb-2  font-medium text-gray-900 dark:text-white">{{"register.rePassword" | translate}}</label>
             <input formControlName="rePassword" type="password" id="rePassword" [ngClass]="
             
             {
@@ -84,7 +84,7 @@
 
         <button [disabled]="registerForm.invalid || isLoading" type="submit" class="btn-main mt-4 ms-auto block">
 
-            Register
+            {{"register.register" | translate}}
 
             @if (isLoading) {
 
